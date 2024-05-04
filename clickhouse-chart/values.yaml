@@ -1,0 +1,49 @@
+# Default values for ClickHouse
+
+# Image settings
+image:
+  repository: "yandex/clickhouse-server"
+  tag: "latest"
+
+# Service account settings
+serviceAccount:
+  create: true
+  name: "clickhouse-sa"
+
+# Storage settings
+storage:
+  hot:
+    size: "5Gi"
+    class: "standard"
+  cold:
+    size: "10Gi"
+    class: "standard"
+
+# Resources settings
+resources:
+  requests:
+    memory: "1Gi"
+    cpu: "0.5"
+  limits:
+    memory: "2Gi"
+    cpu: "1"
+
+# ClickHouse configuration
+clickhouseConfig:
+  moveFactor: 0.2
+
+# Additional configurations (e.g., ports, replicas, etc.)
+replicaCount: 1
+
+# Exposed ports
+service:
+  httpPort: 8123
+  clientPort: 9000
+
+
+ingress:
+  enabled: false
+  # hostname for the ingress controller (optional)
+  hostname: "clickhouse.local"
+  # additional configuration for ingress if needed
+  annotations: {}

@@ -1,0 +1,16 @@
+# templates/service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-service
+spec:
+  ports:
+    - name: http
+      port: {{ .Values.service.httpPort }}
+      targetPort: 8123 # internal port on the container
+    - name: client
+      port: {{ .Values.service.clientPort }}
+      targetPort: 9000 # internal port on the container
+  selector:
+    app: clickhouse

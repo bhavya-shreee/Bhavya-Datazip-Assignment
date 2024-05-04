@@ -1,0 +1,8 @@
+# templates/NOTES.txt
+
+{{- if .Values.ingress.enabled -}}
+1. Get the application URL by running these commands:
+  http://{{ .Values.ingress.hostname }}
+{{- else -}}
+1. ClickHouse has been deployed successfully but ingress is disabled.
+{{- end }}
