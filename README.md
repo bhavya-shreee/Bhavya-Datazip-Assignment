@@ -1,4 +1,4 @@
-Start Minikube with increased resources: minikube start --cpus=4 --memory=8192
+Start Minikube with : minikube start --cpus=4 --memory=8192
 
 Create a Helm chart for ClickHouse: helm create clickhouse-chart
 
